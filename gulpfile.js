@@ -35,6 +35,11 @@ gulp.task('compile:js', () => {
         .pipe(gulp.dest(outputPath));
 });
 
+gulp.task('compile:img', () => {
+    return gulp.src(['src/**/*.{jpg,jpeg,png,gif}'])
+        .pipe(gulp.dest(outputPath))
+})
+
 gulp.task('compile:less', () => {
     let processors = [autoprefixer({ browsers: ['Android >= 4', 'ChromeAndroid >= 46', 'iOS >= 8'] })];
     if (isProduction) processors.push(cssnano);
